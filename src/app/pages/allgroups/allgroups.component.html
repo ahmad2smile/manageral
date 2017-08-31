@@ -1,0 +1,17 @@
+<div class="newBtn">
+    <a [routerLink]="['/newgroup']" class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div *ngFor="let group of groups">
+            <app-group
+                [id]="group.id"
+                [title]="group.title"
+                [intro]="group.intro"
+            ></app-group>
+        </div>
+    </div>
+</div>

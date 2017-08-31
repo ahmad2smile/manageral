@@ -1,0 +1,16 @@
+<div class="newBtn">
+    <a [routerLink]="['/newuser']" class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div *ngFor="let user of users">
+            <app-user
+                [id]="user.id"
+                [name]="user.name"
+            ></app-user>
+        </div>
+    </div>
+</div>

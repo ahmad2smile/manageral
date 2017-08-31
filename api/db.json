@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+        "id": 1,
+        "title": "Default Group",
+        "intro": "This is a default group for any new user"
+    },
+    {
+        "id": 2,
+        "title": "Dota 2",
+        "intro": "This is a about Dota 2 and all things awesome"
+    }
+  ],
+  "users": [
+    {
+        "id": 1,
+        "name": "Ahmad"
+    },
+    {
+        "id": 2,
+        "name": "Spartan"
+    },
+    {
+        "id": 3,
+        "name": "Leigon"
+    }
+  ]
+}
