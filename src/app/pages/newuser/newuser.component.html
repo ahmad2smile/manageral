@@ -1,3 +1,31 @@
-<p>
-  newuser works!
-</p>
+<div class="row formContent">
+	<div class="col s12 m9 l9">
+		<form class="col s12" (submit)="createNewUser()" [formGroup]="newuserForm" novalidate>
+			<div class="row">
+				<div class="input-field col s12">
+					<label>Name</label>
+					<input
+						[class.invalid]="valMsgs.userName"
+						[class.valid]="valMsgs.userName === ''"
+						formControlName="userName"
+						type="text">
+					<span *ngIf="valMsgs.userName" class="red">{{ valMsgs.userName }}</span>
+				</div>
+			</div>
+            <div class="input-field col s12">
+                <select
+                    [(ngModel)]="selectedGroup"
+                    [class.invalid]="valMsgs.defaultGroup"
+                    [class.valid]="valMsgs.defaultGroup === ''"
+                    formControlName="defaultGroup"
+					class="browser-default">
+                    <option *ngFor="let group of allGroups" [value]="group.id">{{ group.title }}</option>
+                </select>
+				<span *ngIf="valMsgs.defaultGroup" class="red">{{ valMsgs.defaultGroup }}</span>
+            </div>
+			<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+				<i class="material-icons right">send</i>
+			</button>
+		</form>
+	</div>
+</div>

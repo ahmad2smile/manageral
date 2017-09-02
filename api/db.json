@@ -19,15 +19,45 @@
   "users": [
     {
       "id": 1,
-      "name": "Ahmad"
+      "name": "Ahmad",
+      "groups": [
+        2
+      ]
     },
     {
       "id": 2,
-      "name": "Spartan"
+      "name": "Spartan",
+      "groups": [
+        2
+      ]
     },
     {
       "id": 3,
-      "name": "Leigon"
+      "name": "Leigon",
+      "groups": [
+        2
+      ]
+    },
+    {
+      "name": "Cheetah",
+      "groups": [
+        2
+      ],
+      "id": 4
+    },
+    {
+      "name": "Pablo",
+      "groups": [
+        2
+      ],
+      "id": 5
+    },
+    {
+      "name": "Mr White",
+      "groups": [
+        1
+      ],
+      "id": 6
     }
   ]
 }
