@@ -33,6 +33,14 @@ export class DataService {
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
 	}
+	
+	createNewGroup(formData): Observable<any>{
+		return this._http.post(`${ this.baseUrl }/groups`, formData)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
+	
 	getAllUsers(): Observable<any>{
 		return this._http.get(`${ this.baseUrl }/users`)
 					.map((res)=> res.json())
