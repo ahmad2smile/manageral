@@ -26,7 +26,7 @@ const routes: Routes = [
 	{ path: "newgroup", component: NewgroupComponent },
 	{ path: "newuser", component: NewuserComponent },
 	{ path: "group/:id", component: GroupdetailsComponent },
-	{ path: "group/:id", component: GroupdetailsComponent },
+	{ path: "user/:id", component: UserdetailsComponent },
 ];
 
 @NgModule({

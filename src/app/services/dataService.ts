@@ -40,9 +40,27 @@ export class DataService {
 					.retryWhen(this.retryCalls(3));
 	}
 	
+	getGroupDetails(groupId: string): Observable<any>{
+		return this._http.get(`${ this.baseUrl }/groups/${ groupId }`)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
 	
 	getAllUsers(): Observable<any>{
 		return this._http.get(`${ this.baseUrl }/users`)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
+	createNewUser(formData): Observable<any>{
+		return this._http.post(`${ this.baseUrl }/users`, formData)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
+	getUserDetails(userId: string): Observable<any>{
+		return this._http.get(`${ this.baseUrl }/users/${ userId }`)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
 	}
