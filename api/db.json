@@ -15,7 +15,6 @@
       "users": [
         1,
         2,
-        3,
         4,
         5
       ]
@@ -29,8 +28,8 @@
       ]
     },
     {
-      "title": "TestGroup",
-      "intro": "This is a test Group",
+      "title": "Empty Group",
+      "intro": "To Show all the options",
       "users": [],
       "id": 4
     }
@@ -39,13 +38,6 @@
     {
       "id": 2,
       "name": "Spartan",
-      "groups": [
-        2
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Leigon",
       "groups": [
         2
       ]
