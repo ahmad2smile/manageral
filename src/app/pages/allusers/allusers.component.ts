@@ -13,6 +13,8 @@ export class AllusersComponent{
     }
     
     private users: Array<any> = [];
+	
+	private searchParam: string = "";
     
     getAllUsers(){
         this._dataService.getAllUsers().subscribe(
@@ -23,5 +25,9 @@ export class AllusersComponent{
                 console.log(err);
             }
         )
+    }
+	
+	search(e: KeyboardEvent){
+        this.searchParam = (<HTMLInputElement>e.target).value.toUpperCase();
     }
 }

@@ -19,6 +19,8 @@ import { DataService, ValidationService } from "./services/index";
 import { NewgroupComponent } from './pages/newgroup/newgroup.component';
 import { NewuserComponent } from './pages/newuser/newuser.component';
 
+import { SearchPipe } from "./pipes/index";
+
 const routes: Routes = [
 	{ path: "", component: HomeComponent, pathMatch: "full" },
 	{ path: "groups", component: AllgroupsComponent },
@@ -31,22 +33,23 @@ const routes: Routes = [
 
 @NgModule({
 	declarations: [
-		AppComponent,
-		GroupComponent,
-		UserComponent,
 		AllgroupsComponent,
 		AllusersComponent,
-		UserdetailsComponent,
+		AppComponent,
+		GroupComponent,
 		GroupdetailsComponent,
 		HomeComponent,
 		NewgroupComponent,
-		NewuserComponent
+		NewuserComponent,
+		SearchPipe,
+		UserComponent,
+		UserdetailsComponent,
 	],
 	imports: [
 		BrowserModule,
 		FormsModule,
-		ReactiveFormsModule,
 		HttpModule,
+		ReactiveFormsModule,
 		RouterModule.forRoot(routes)
 	],
 	providers: [

@@ -13,6 +13,8 @@ export class AllgroupsComponent{
     }
     
     private groups: Array<any> = [];
+	
+	private searchParam: string = "";
     
     getAllGroups(){
         this._dataService.getAllGroups().subscribe(
@@ -23,6 +25,10 @@ export class AllgroupsComponent{
                 console.log(err);
             }
         );
+    }
+	
+	search(e: KeyboardEvent){
+        this.searchParam = (<HTMLInputElement>e.target).value.toUpperCase();
     }
 
 }

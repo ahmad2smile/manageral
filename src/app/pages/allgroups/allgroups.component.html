@@ -1,17 +1,22 @@
 <div class="newBtn">
-    <a [routerLink]="['/newgroup']" class="btn-floating btn-large waves-effect waves-light">
+    <div class="input-field inline">
+        <i class="material-icons prefix">search</i>
+        <input (keyup)="search($event)" id="icon_prefix" type="text" class="validate">
+        <label for="icon_prefix">Search</label>
+    </div>
+
+	<a [routerLink]="['/newgroup']" class="btn-floating btn-large waves-effect waves-light">
         <i class="material-icons">add</i>
     </a>
 </div>
 
 <div class="row">
-    <div class="col-12">
-        <div *ngFor="let group of groups">
-            <app-group
+	<div class="col-12">
+		<div *ngFor="let group of groups | searchFor: searchParam:'title'">
+			<app-group
                 [id]="group.id"
                 [title]="group.title"
-                [intro]="group.intro"
-            ></app-group>
-        </div>
-    </div>
+                [intro]="group.intro"></app-group>
+		</div>
+	</div>
 </div>
