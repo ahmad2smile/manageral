@@ -3,17 +3,32 @@
     {
       "id": 1,
       "title": "Default Group",
-      "intro": "This is a default group for any new user"
+      "intro": "This is a default group for any new user",
+      "users": [
+        6,
+        7
+      ]
     },
     {
       "id": 2,
       "title": "Dota 2",
-      "intro": "This is a about Dota 2 and all things awesome"
+      "intro": "This is a about Dota 2 and all things awesome",
+      "users": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
     },
     {
       "title": "COD",
       "intro": "This is a group about cod",
-      "id": 3
+      "id": 3,
+      "users": [
+        3
+      ]
     }
   ],
   "users": [
@@ -48,7 +63,8 @@
     {
       "name": "Mr. White",
       "groups": [
-        1
+        1,
+        3
       ],
       "id": 6
     },

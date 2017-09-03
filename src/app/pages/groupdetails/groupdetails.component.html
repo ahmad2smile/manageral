@@ -1,2 +1,22 @@
-<h1>{{ title }}</h1>
-<p>{{ intro }}</p>
+<div class="row formContent">
+    <div class="col s12 m9 l9">
+        <h4>{{ title }}</h4>
+        <p>{{ intro }}</p>
+        
+        <ul class="collection with-header">
+            <li class="collection-header">
+                <h4>Groups' Users</h4>
+                <a *ngIf="groupUsers.length === 0" (click)="deleteGroup()" class="waves-effect waves-light btn red">
+                    <i class="material-icons left">delete</i>{{ delGroup }}
+                </a>
+            </li>
+            <li *ngFor="let user of groupUsers" class="collection-item">
+                <div>{{ user.name }}
+                    <a href="javascript:void(0);" (click)="goToUserDetails(user.id)" class="secondary-content">
+                        <i class="material-icons">list</i>
+                    </a>
+                </div>
+            </li>
+        </ul>        
+    </div>
+</div>

@@ -40,6 +40,12 @@ export class DataService {
 					.retryWhen(this.retryCalls(3));
 	}
 	
+	deleteGroup(groupId: number): Observable<any>{
+		return this._http.delete(`${ this.baseUrl }/groups/${ groupId }`)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
 	getGroupDetails(groupId: number): Observable<any>{
 		return this._http.get(`${ this.baseUrl }/groups/${ groupId }`)
 					.map((res)=> res.json())
