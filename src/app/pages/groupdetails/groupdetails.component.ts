@@ -26,7 +26,7 @@ export class GroupdetailsComponent implements OnInit{
         );
 	}
     
-    getGroupDetails(groupId: string){
+    getGroupDetails(groupId: number){
         this._dataService.getGroupDetails(groupId).subscribe(
             (res)=>{
                 this.title = res.title;

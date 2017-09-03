@@ -40,7 +40,7 @@ export class DataService {
 					.retryWhen(this.retryCalls(3));
 	}
 	
-	getGroupDetails(groupId: string): Observable<any>{
+	getGroupDetails(groupId: number): Observable<any>{
 		return this._http.get(`${ this.baseUrl }/groups/${ groupId }`)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
@@ -59,8 +59,20 @@ export class DataService {
 					.retryWhen(this.retryCalls(3));
 	}
 	
-	getUserDetails(userId: string): Observable<any>{
+	deleteUser(userId: number): Observable<any>{
+		return this._http.delete(`${ this.baseUrl }/users/${ userId }`)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
+	getUserDetails(userId: number): Observable<any>{
 		return this._http.get(`${ this.baseUrl }/users/${ userId }`)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3));
+	}
+	
+	updateUser(userId, newData){
+		return this._http.put(`${ this.baseUrl }/users/${ userId }`, newData)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
 	}

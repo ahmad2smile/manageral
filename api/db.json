@@ -18,13 +18,6 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Ahmad",
-      "groups": [
-        2
-      ]
-    },
-    {
       "id": 2,
       "name": "Spartan",
       "groups": [
@@ -53,11 +46,20 @@
       "id": 5
     },
     {
-      "name": "Mr White",
+      "name": "Mr. White",
       "groups": [
         1
       ],
       "id": 6
+    },
+    {
+      "name": "Ahmad",
+      "groups": [
+        1,
+        2,
+        3
+      ],
+      "id": 7
     }
   ]
 }
