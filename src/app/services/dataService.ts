@@ -60,12 +60,29 @@ export class DataService {
 	}
 	
 	createNewUser(formData): Observable<any>{
+		//update group for new users
+		this.getAllUsers().subscribe(
+			(res: Array<any>)=>{
+				let maxUserId = Math.max.apply(Math, res.map((x)=> x.id));
+				let newUserId = maxUserId + 1;
+
+				this.updateGroupForUser(formData.groups[0], newUserId);
+			},
+			(err)=>{
+				console.log(err);
+			}
+		);
+		
 		return this._http.post(`${ this.baseUrl }/users`, formData)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
 	}
-	
-	deleteUser(userId: number): Observable<any>{
+
+	deleteUser(userId: number, groupIds: Array<any>): Observable<any>{
+		groupIds.forEach((groupId)=>{
+			this.updateGroupForUser(groupId, userId, true);
+		});
+		
 		return this._http.delete(`${ this.baseUrl }/users/${ userId }`)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
@@ -81,5 +98,38 @@ export class DataService {
 		return this._http.put(`${ this.baseUrl }/users/${ userId }`, newData)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
+	}
+	
+	
+	private updateGroupForUser(groupId: number, userId: number, del?: boolean){
+		this._http.get(`${ this.baseUrl }/groups/${ groupId }`)
+			.map((groupRes)=> groupRes.json())
+			.subscribe(
+			(res: any)=>{
+				if (del){
+					console.log(res.users, userId);
+				    res.users =  res.users.filter((id)=> id !== userId);
+					console.log(res.users);
+				}else{
+					res.users.push(userId);
+					res.users = Array.from(new Set(res.users)); //remove dups
+				}
+				this._http.put(`${ this.baseUrl }/groups/${ groupId }`, res)
+					.map((res)=> res.json())
+					.retryWhen(this.retryCalls(3))
+					.subscribe(
+					(res_)=>{
+						// console.log(res_);
+					},
+					(err_)=>{
+						console.log(err_);
+					}
+				);
+			},
+			(err)=>{
+				console.log(err);
+			}
+		);
+		
 	}
 }

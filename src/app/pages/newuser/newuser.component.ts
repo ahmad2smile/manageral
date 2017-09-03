@@ -76,7 +76,6 @@ export class NewuserComponent implements OnInit, AfterViewInit{
 						console.log(err);
 					}
 				);
-		    console.log(this.newuserForm.value);
 		}else{
 			console.log("From Not Valid");
 			this._validationService.validateFormOnSubmit(this.newuserForm);

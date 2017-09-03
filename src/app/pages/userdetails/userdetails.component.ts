@@ -100,10 +100,7 @@ export class UserdetailsComponent implements OnInit {
 		this.groupToAddReady = true;
 	}
 	
-	addToGroups(){
-		console.log("Something here");
-		console.log(this.addToGroupsForm.value);
-		
+	addToGroups(){		
 		for (let key in this.addToGroupsForm.value) {
 		    if (this.addToGroupsForm.value[key]) {
 				let newGroup = this.addToGroupsOpts.find((group)=> group.title === key);
@@ -139,14 +136,14 @@ export class UserdetailsComponent implements OnInit {
 		    this.delUser = "Are you sure?";
 			return;
 		}
-		this._dataService.deleteUser(this.navParamId).subscribe(
+		this._dataService.deleteUser(this.navParamId, this.userGroupIds).subscribe(
 			(res)=>{
 				this._router.navigate(['/users']);
 			},
 			(err)=>{
 				console.log(err);
 			}
-		)
+		);
 	}
 
 }

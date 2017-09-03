@@ -5,8 +5,7 @@
       "title": "Default Group",
       "intro": "This is a default group for any new user",
       "users": [
-        6,
-        7
+        6
       ]
     },
     {
@@ -18,8 +17,7 @@
         2,
         3,
         4,
-        5,
-        7
+        5
       ]
     },
     {
@@ -29,6 +27,12 @@
       "users": [
         3
       ]
+    },
+    {
+      "title": "TestGroup",
+      "intro": "This is a test Group",
+      "users": [],
+      "id": 4
     }
   ],
   "users": [
@@ -67,15 +71,6 @@
         3
       ],
       "id": 6
-    },
-    {
-      "name": "Ahmad",
-      "groups": [
-        1,
-        2,
-        3
-      ],
-      "id": 7
     }
   ]
 }

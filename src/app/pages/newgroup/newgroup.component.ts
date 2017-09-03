@@ -42,7 +42,7 @@ export class NewgroupComponent implements OnInit, AfterViewInit{
     createNewGroup(){
 		if (this.newgroupForm.valid){
 			const { groupName, groupDescription } = this.newgroupForm.value;
-			this._dataService.createNewGroup({ title: groupName, intro: groupDescription })
+			this._dataService.createNewGroup({ title: groupName, intro: groupDescription, users: [] })
 				.subscribe(
 					(res)=>{
 						this._router.navigate(['/group/'+ res.id]);
