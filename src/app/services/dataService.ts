@@ -94,10 +94,29 @@ export class DataService {
 					.retryWhen(this.retryCalls(3));
 	}
 	
-	updateUser(userId, newData){
+	updateUser(userId, newData, del){
+		this.setupUserUpdates(userId, newData, del);
 		return this._http.put(`${ this.baseUrl }/users/${ userId }`, newData)
 					.map((res)=> res.json())
 					.retryWhen(this.retryCalls(3));
+	}
+	
+	private compareArrays(arr1: Array<any>, arr2: Array<any>): Array<any>{
+		return (arr1.length > arr2.length) ? arr1.filter((x)=> !arr2.includes(x)) 
+					: arr2.filter((x)=> !arr1.includes(x));
+		
+	}
+	
+	private setupUserUpdates(userId: number, newData: any, del: boolean){
+		this.getUserDetails(userId).subscribe(
+			(res)=>{
+				this.compareArrays(res.groups, newData.groups)
+					.forEach((groupId)=> this.updateGroupForUser(groupId, userId, del));
+			},
+			(err)=>{
+				console.log(err);
+			}
+		)
 	}
 	
 	

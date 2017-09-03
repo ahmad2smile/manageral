@@ -112,15 +112,15 @@ export class UserdetailsComponent implements OnInit {
 		this.updateUser(userData);
 	}
 
-	removeFromGroup(groupId: number) {
+	removeFromGroup(groupId: number){
 		let newUserGroups = this.userGroupIds.filter((x) => x !== groupId);
 
 		let userData = { name: this.name, groups: newUserGroups };
-		this.updateUser(userData);
+		this.updateUser(userData, true);
 	}
 
-	updateUser(userData) {
-		this._dataService.updateUser(this.navParamId, userData).subscribe(
+	updateUser(userData, del?: boolean) {
+		this._dataService.updateUser(this.navParamId, userData, del).subscribe(
 			(res) => {
 				this.getUserDetails(this.navParamId);
 				console.log(res);
